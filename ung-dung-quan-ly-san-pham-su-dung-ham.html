@@ -9,7 +9,7 @@
     <fieldset>
         <legend>Add new product</legend>
         <input id="inputproduct" type="text" placeholder="new product">
-        <button type="button" onclick="createproduct">Add</button>
+        <button type="button" onclick="createProduct">Add</button>
         <legend>Display all product</legend>
     </fieldset>
     <br>
@@ -19,21 +19,61 @@
     </fieldset>
 </form>
 <script>
-     let products = ["quần","áo","giày","dép","cặp sách"];
-     let current = -1;
-     
-     function createproduct() {
-         let productinput = document.getElementById("inputproduct");
-         if (productinput.value ==''){
-             alert("vui lòng nhập thông tin");
-     }else {
-             let products = [productinput.value];
-             products.push(product);
-             clearInput();
-             Display();
-         }
-         
-     }
+    let products = ["quần", "áo", "giày", "dép", "cặp sách"];
+    let current = -1;
+
+    function createProduct() {
+        let productInput = document.getElementById("inputproduct");
+        if (productInput.value == '') {
+            alert("vui lòng nhập thông tin");
+        } else {
+            let product = [productInput.value];
+            products.push(product);
+            clearInput();
+            display();
+        }
+    }
+
+
+    function editProduct(index) {
+        document.getElementById('inputproduct').value = products[index];
+        current = index;
+    }
+
+    function updateProduct() {
+        products[current] = document.getElementById("inputproduct").value;
+        display();
+    }
+updateProduct()
+
+    function deleteProduct(index) {
+        let cf = confirm('đã xóa');
+        if (cf) {
+            products.splice(index, 1);
+            display();
+        }
+    }
+
+    function display() {
+        let list = document.getElementById('list-product');
+        let str = `<tr>
+                     <th>name</th>
+                     <th colspan="2">Action</th>
+                   </tr>`;
+        for (let id in products) {
+            str += `<tr>
+                     <td>${products[id]}</td>
+                     <td><button onclick="editProduct(${id})">Edit</button></td>
+                     <td><button onclick="deleteProduct(${id})">Delete</button></td>
+                    </tr>`
+        }
+        list.innerHTML = str;
+    }
+
+function clearInput() {
+    document.getElementById('inputproduct').value = '';
+}
+    display();
 </script>
 </body>
 </html>
