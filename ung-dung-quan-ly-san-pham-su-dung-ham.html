@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ung-dung-quan-ly-san-pham-su-dung-ham</title>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>Add new product</legend>
+        <input id="inputproduct" type="text" placeholder="new product">
+        <button type="button" onclick="createproduct">Add</button>
+        <legend>Display all product</legend>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Display all product</legend>
+        <table id="list-product"></table>
+    </fieldset>
+</form>
+<script>
+     let products = ["quần","áo","giày","dép","cặp sách"];
+     let current = -1;
+     
+     function createproduct() {
+         let productinput = document.getElementById("inputproduct");
+         if (productinput.value ==''){
+             alert("vui lòng nhập thông tin");
+     }else {
+             let products = [productinput.value];
+             products.push(product);
+             clearInput();
+             Display();
+         }
+         
+     }
+</script>
+</body>
+</html>

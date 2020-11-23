@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai5</title>
+</head>
+<body>
+<input id="on" type="text" placeholder="Polaris Aldebaran Deneb Vega Altair Dubhe và Regulus">
+<button type="button" onclick="my(document.getElementById('on').value)">tìm kiếm</button>
+<label id="in" for="on">NULL</label>
+<script>
+    let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe","Regulus"];
+    let arr2 = [ "Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa","Major","Leo"];
+    
+    function my(str) {
+        for (let i in arr1) {
+            if (str == arr1[i]) {
+                document.getElementById("in").innerText = arr2[i];
+                return arr2[i];
+            }
+            document.getElementById("in").innerText = "không tìm thấy!";
+            return "không tìm thấy!";
+        }
+    }
+</script>
+</body>
+</html>

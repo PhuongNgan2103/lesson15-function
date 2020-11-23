@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen-doi-giua-feet-meters</title>
+</head>
+<body>
+<button onclick="footToMeter(+prompt('nhập số cần đổi'))">foot to meter</button>
+<button onclick="meterToFoot(+prompt('nhập số cần đổi'))">meter to foot</button>
+<script>
+
+    function footToMeter(foot){
+        alert(parseFloat(0.305 * foot).toFixed(3));
+    }
+    function meterToFoot(meter){
+        alert(parseFloat(3.279 * meter).toFixed(3));
+    }
+
+</script>
+</body>
+</html>
